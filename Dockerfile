@@ -21,7 +21,7 @@ RUN mkdir -p build_output && \
 # STAGE 2: RUN (Ejecución con JDK, la corrección final)
 # ----------------------------------------------------------------------
 # Usamos JDK-slim para asegurar que todas las clases de JPA/Hibernate estén disponibles.
-FROM eclipse-temurin:21-jdk-slim
+FROM eclipse-temurin:21-jdk
 EXPOSE 8080
 WORKDIR /app
 
