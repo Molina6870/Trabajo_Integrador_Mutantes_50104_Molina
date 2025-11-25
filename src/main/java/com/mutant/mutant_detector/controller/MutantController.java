@@ -22,6 +22,11 @@ public class MutantController {
         this.statsService = statsService;
     }
 
+    @GetMapping("/")
+    public String home() {
+        return "Bienvenido a la API de detección de mutantes. Usa el endpoint /mutant para verificar un ADN.";
+    }
+
     /**
      * Endpoint POST /mutant - Determina si el ADN es mutante.
      * Devuelve 200 OK si es mutante, 403 Forbidden si es humano.
