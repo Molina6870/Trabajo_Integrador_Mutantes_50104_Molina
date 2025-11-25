@@ -11,14 +11,21 @@ COPY src ./src
 
 RUN mvn clean package -DskipTests
 
+# Mover el JAR compilado, renombrándolo a app.jar y excluyendo archivos de documentación/fuente.
+# Esto asegura que la etapa de ejecución siempre encuentre 'app.jar'.
+RUN mkdir -p build_output && \
+    cp $(find target -maxdepth 1 -name "*.jar" ! -name "*sources.jar" ! -name "*javadoc.jar") build_output/app.jar
+
+
 # ----------------------------------------------------------------------
-# STAGE 2: RUN (Ejecución con JRE más estable)
+# STAGE 2: RUN (Ejecución con JDK, la corrección final)
 # ----------------------------------------------------------------------
-FROM eclipse-temurin:21-jre-slim
+# Usamos JDK-slim para asegurar que todas las clases de JPA/Hibernate estén disponibles.
+FROM eclipse-temurin:21-jdk-slim
 EXPOSE 8080
 WORKDIR /app
 
-# COPIA CRÍTICA: Copia el JAR con su nombre exacto
-COPY --from=build /app/target/mutant-detector-0.0.1-SNAPSHOT.jar app.jar
+# Copia el JAR renombrado de la etapa de construcción
+COPY --from=build /app/build_output/app.jar .
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
