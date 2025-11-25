@@ -1,0 +1,27 @@
+-------------------------------------------------------------------------------
+Test set: com.mutant.mutant_detector.service.MutantDetectorTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.038 s <<< FAILURE! -- in com.mutant.mutant_detector.service.MutantDetectorTest
+com.mutant.mutant_detector.service.MutantDetectorTest.testMutantDiagonalDerecha -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Debe detectar la secuencia en diagonal principal (derecha) ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
+	at com.mutant.mutant_detector.service.MutantDetectorTest.testMutantDiagonalDerecha(MutantDetectorTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.mutant.mutant_detector.service.MutantDetectorTest.testInvalidMatrixSize -- Time elapsed: 0 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Debe lanzar excepción por matriz no cuadrada ==> Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3131)
+	at com.mutant.mutant_detector.service.MutantDetectorTest.testInvalidMatrixSize(MutantDetectorTest.java:117)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
